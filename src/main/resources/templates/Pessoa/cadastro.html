@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"/>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Noto+Sans:wght@400;700&display=swap');
+
+body{
+  margin: 0; /*tirando a margem do site*/
+  font-family: 'Noto Sans', sans-serif;
+}
+
+/*serve para definir que todos as propriedades vão usar esse negocio*/
+body * {
+  box-sizing: border-box;
+}
+
+.main-cadastro{
+  width: 100vw;/*width=largura e 100vw=100% da tela*/
+  height: 100vh;/*height=altura*/
+  background: #201b2c;
+  display: flex; /*faz com que as coisas fiquem lado a lado*/
+  justify-content: center; /*centraliza  as coisas no eixo X*/
+  align-items: center; /*centraliza as coisas no eixo Y*/
+}
+
+.left-cadastro{
+  width: 50vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.left-cadastro > h1{
+  font-size: 3vw;
+  color: #77ffc0;
+}
+
+.animated{
+  width: 35vw;
+}
+
+.right-cadastro{
+  width: 50vw; /*50%*/
+  height: 100vh; /*100%*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-cadastro{
+  width: 60%;/*60% da div*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px 35px;/*espaço entre a borda e o conteudo do site*/
+  background: #2f2841;
+  border-radius: 20px; /*para a borda*/
+  box-shadow: 0px 10px 40px #00000056; /*sombra do card*/
+}
+
+.card-cadastro > h1 {
+  color: #00ff88;
+  font-weight: 800; /*peso da font*/
+  margin:0;
+}
+
+.textfield{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 10px 0px; /* primeiro valor esta ligado ao eixo Y, e o segundo ao eixo X*/
+}
+
+.textfield > input {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  background: #514869;
+  color: #f0ffffde;
+  font-size: 12pt; /*pt=unidade de medida para fontes*/
+  box-shadow: 0px 10px 40px #00000056;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.textfield > label{
+  color: #f0ffffde;
+  margin-bottom: 10px;/*margem para baixo*/
+}
+
+.textfield > input::placeholder{
+  color: #f0ffff94;
+}
+
+.button-cadastrar{
+  width: 100%;
+  padding: 16px 0px;
+  margin: 25px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  text-transform: uppercase;/*deixar as letras em caixa alta*/
+  font-weight: 800;
+  letter-spacing: 3px; /*espaçamento*/
+  color: #2b134b;
+  background: #00ff88;
+  cursor: pointer;
+  box-shadow: 0px 10px 40px -12px #00ff1052;
+}
+
+@media only screen and (max-width:950px){
+  .card-cadastro{
+    width: 85%;
+  }
+}
+
+@media only screen and (max-width:600px){
+  .main-cadastro{
+    flex-direction: column; /*para deixar as divs em colunas*/
+  }
+
+  .left-cadastro > h1{
+    display: none; /*tirar o h1*/
+  }
+
+  .left-cadastro{
+    width: 100%;
+    height: auto;
+  }
+
+  .right-cadastro{
+    width: 100%;
+    height: auto;
+  }
+
+  .animated{
+    width: 50vw;
+  }
+
+  .card-cadastro{
+    width: 90%;
+  }
+}
+    </style>
+    <title>Document</title>
+</head>
+<body>
+<div class="main-cadastro">
+
+    <div class="left-cadastro">
+        <h1>Venha fazer seu Cadastro<br>No site GreenCode</h1>
+        <h1>Proteja o Meio-Ambiente</h1>
+    </div>
+    <div class="right-cadastro">
+        <div class="card-cadastro">
+
+            <h1>Cadastro</h1>
+            <div class="textfield">
+                <label>Usuário</label>
+                <input th:value="${nome}" id="nome" type="text" name="nome" placeholder="Nome">
+            </div>
+            <div class="textfield">
+                <label>Email</label>
+                <input th:value="${email}" id="email" type="text" name="email" placeholder="Email">
+            </div>
+            <div class="textfield">
+                <label>Telefone</label>
+                <input th:value="${telefone}" id="telefone" type="text" name="telefone" placeholder="Telefone">
+            </div>
+            <div class="textfield">
+                <label>Senha</label>
+                <input th:value="${senha}" id="senha" type="password" name="senha" placeholder="Senha">
+            </div>
+            <input id="enviar" value="Finalizar" type="submit" class="button-cadastrar">
+        </div>
+    </div>
+    <script>
+        $("#enviar").click(envia);
+
+            function validaCampoVazio(campo){
+            if(campo.trim() == ''){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+      function envia(){
+
+          let podeEnviar = true;
+          let nome = $("#nome").val();
+          let email = $("#email").val();
+          let telefone = $("#telefone").val();
+          let senha = $("#senha").val();
+          let  mensagem = "";
+
+           if(validaCampoVazio(nome)){
+                podeEnviar = false;
+                mensagem += "O Nome precisa ser Preenchido!\n";
+
+            }
+            if(validaCampoVazio(email)){
+                podeEnviar = false;
+                mensagem += "Email precisa ser informado!\n";
+
+            }
+            if(validaCampoVazio(telefone)){
+            podeEnviar = false;
+            mensagem += "Telefone precisa ser informado!\n";
+
+            }
+            if(validaCampoVazio(senha)){
+               podeEnviar = false;
+               mensagem += "A senha precisa ser informada!\n";
+           }
+            if(podeEnviar){
+          $.ajax({
+              type: "POST",
+              url: "/cadastro",
+              data: {
+                  nome: nome,
+                  email: email,
+                  telefone: telefone,
+                  senha:senha,
+              },
+              success: function (data){
+                  $("#enviar").click(envia);
+                   if(data.sucesso){
+                         window.location.href="/";
+                   }
+              },
+              error: function (data) {
+                    $("#mensagem");
+              }
+          });
+          }else{
+            alert(mensagem);
+
+          }
+      }
+    </script>
+</div>
+</body>
+</html>

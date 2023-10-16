@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+
+    <!-- Sweet Alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.31/dist/sweetalert2.all.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.31/dist/sweetalert2.min.css" rel="stylesheet">
+
+    <!-- Seu arquivo CSS personalizado -->
+    <link rel="stylesheet" type="text/css" href="home.css">
+
+    <!-- Estilos adicionais -->
+    <style type="text/css">
+        .navbar-green {
+            background-color: rgba(57, 175, 57, 0.75); !important;
+        }
+
+        .navbar {
+            height: 100px;
+        }
+
+        .navbar img {
+            width: 80px;
+            height: 80px;
+            margin-top: 10px;
+        }
+
+        .navbar-nav {
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+    </style>
+
+    <title>Document</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-sm navbar-green border-bottom border-body" data-bs-theme="dark">
+        <a class="navbar-brand">
+            <img src="arvore.png" style="border-radius: 100px">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 55px">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a id="busca" class="nav-link" href="/cadastro/notebook">Busca</a>
+                </li>
+                <li class="nav-item">
+                    <a id="pontoColeta" class="nav-link" href="/cadastro/notebook">Ponto de coleta</a>
+                </li>
+            </ul>
+            <a href="/logout" class="btn btn-danger text-end" style="margin-right: 10px">Logout</a>
+    </div>
+</nav>
+<div id="mainContainer" class="container">
+    <!-- Conteúdo da sua página aqui -->
+</div>
+</body>
+</html>
