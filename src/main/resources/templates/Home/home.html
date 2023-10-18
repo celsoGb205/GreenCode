@@ -30,7 +30,11 @@
         .navbar-green {
             background-color: rgba(57, 175, 57, 0.75); !important;
         }
-
+        .square {
+            width: 500px; /* Largura do quadrado */
+            height: 500px; /* Altura do quadrado */
+            background-color: rgba(0, 0, 0); /* Cor de fundo do quadrado */
+        }
         .navbar {
             height: 100px;
         }
@@ -45,6 +49,16 @@
             margin-top: auto;
             margin-bottom: auto;
         }
+        .cursive {
+            font-family: cursive;
+        }
+
+        .linha-horizontal {
+            border-top: 2px solid #000;
+            margin-top: 20px;
+        }
+
+
     </style>
 
     <title>Document</title>
@@ -52,29 +66,40 @@
 <body>
 <nav class="navbar navbar-expand-sm navbar-green border-bottom border-body" data-bs-theme="dark">
         <a class="navbar-brand">
-            <img src="arvore.png" style="border-radius: 100px">
+            <img src="arvore.png" style="border-radius: 100px; margin-left : 45px; margin-top : 5px">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 55px">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 30px">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" style="margin-bottom : 5px; font-size: 20px;" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a id="busca" class="nav-link" href="/cadastro/notebook">Busca</a>
+                    <a id="busca" class="nav-link" style="margin-bottom : 5px; font-size: 20px;" href="/cadastro/notebook">Busca</a>
                 </li>
                 <li class="nav-item">
-                    <a id="pontoColeta" class="nav-link" href="/cadastro/notebook">Ponto de coleta</a>
+                    <a id="pontoColeta" class="nav-link" style="margin-bottom : 5px; font-size: 20px;" href="/cadastro/notebook">Ponto de coleta</a>
+                </li>
+                <li class="nav-item">
+                    <a id="criarPontoColeta" class="nav-link" style="margin-bottom : 5px; font-size: 20px;" href="/cadastro/notebook">Criar ponto de coleta</a>
                 </li>
             </ul>
+            <h1 class="cursive" style="margin-right : 35px; color: white ; ">GreenCode</h1>
             <a href="/logout" class="btn btn-danger text-end" style="margin-right: 10px">Logout</a>
     </div>
 </nav>
-<div id="mainContainer" class="container">
-    <!-- Conteúdo da sua página aqui -->
+<div class="row">
+    <div class="square" style="margin-top: 80px; width: 400px; height: 480px; background-color: rgba(57, 175, 57, 0.75); margin-left: 50px; border: 2px solid black;">
+
+        <h1 class="cursive text-center" style="margin-top:15px; color: white; font-size: 30px;">Perfil</h1>
+        <div class="linha-horizontal"></div>
+
+        </div>
+    </div>
+    <div class="square" style="margin-top: 50px; width: 900px; height: 550px; background-color: rgba(250, 255, 253, 0.75); margin-left: 110px; border: 2px solid black;"></div>
 </div>
 </body>
 </html>
