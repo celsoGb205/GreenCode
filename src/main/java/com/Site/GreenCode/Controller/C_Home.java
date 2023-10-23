@@ -22,7 +22,7 @@ public class C_Home {
     @GetMapping("/Home")
     public String getPartialHome(HttpServletRequest request){
         if(request.getHeader("Referer") != null) {
-            return "home/partial_home";
+            return "Home/partial_home";
         }else{
             return "redirect:/";
         }

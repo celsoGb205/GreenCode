@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,10 +23,12 @@
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.31/dist/sweetalert2.min.css" rel="stylesheet">
 
     <!-- Seu arquivo CSS personalizado -->
-    <link rel="stylesheet" type="text/css" href="home.css">
+    <script src="JavaS/coleta.js"></script>
+    <script src="JavaS/home.js" defer></script>
+    <link rel="stylesheet"  href="home.css"/>
 
     <!-- Estilos adicionais -->
-    <style type="text/css">
+    <style>
         .navbar-green {
             background-color: rgba(57, 175, 57, 0.75); !important;
         }
@@ -75,31 +77,37 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 30px">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" style="margin-bottom : 5px; font-size: 20px;" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" style="margin-bottom : 5px; font-size: 20px;" href="Home/home">Home</a>
                 </li>
                 <li class="nav-item">
                     <a id="busca" class="nav-link" style="margin-bottom : 5px; font-size: 20px;" href="/cadastro/notebook">Busca</a>
                 </li>
                 <li class="nav-item">
-                    <a id="pontoColeta" class="nav-link" style="margin-bottom : 5px; font-size: 20px;" href="/cadastro/notebook">Ponto de coleta</a>
+                    <a id="pontoColeta" class="nav-link" style="margin-bottom : 5px; font-size: 20px;" href="/">Ponto de coleta</a>
                 </li>
                 <li class="nav-item">
-                    <a id="criarPontoColeta" class="nav-link" style="margin-bottom : 5px; font-size: 20px;" href="/cadastro/notebook">Criar ponto de coleta</a>
+                    <a id="criarPontoColeta" class="nav-link" style="margin-bottom : 5px; font-size: 20px;" href="Cadastro/coleta">Criar ponto de coleta</a>
                 </li>
+
             </ul>
             <h1 class="cursive" style="margin-right : 35px; color: white ; ">GreenCode</h1>
             <a href="/logout" class="btn btn-danger text-end" style="margin-right: 10px">Logout</a>
     </div>
 </nav>
+<div id="mainFrame" class="container">
 <div class="row">
-    <div class="square" style="margin-top: 80px; width: 400px; height: 480px; background-color: rgba(57, 175, 57, 0.75); margin-left: 50px; border: 2px solid black;">
+    <div class="square" style="margin-top: 80px; width: 500px; height: 400px; background-color: rgba(57, 175, 57, 0.75); margin-left: 50px; border: 2px solid black;">
 
         <h1 class="cursive text-center" style="margin-top:15px; color: white; font-size: 30px;">Perfil</h1>
         <div class="linha-horizontal"></div>
+        <h4 class="cursive" th:text="${'Nome: '+ email.nome} + ' '" style="margin-top:15px; margin-left: 20px; color: white; font-size: 30px;"></h4>
+        <h4 class="cursive" th:text="${'E-mail: '+ email.email} + ' '" style="margin-top:15px; margin-left: 20px; color: white; font-size: 30px;"></h4>
+        <h4 class="cursive" th:text="${'Telefone: '+ email.telefone} + ' '" style="margin-top:15px; margin-left: 20px; color: white; font-size: 30px;"></h4>
+        <h4 class="cursive" style="margin-top:15px; margin-left: 20px; color: white; font-size: 30px;">Alterar senha</h4>
 
-        </div>
     </div>
-    <div class="square" style="margin-top: 50px; width: 900px; height: 550px; background-color: rgba(250, 255, 253, 0.75); margin-left: 110px; border: 2px solid black;"></div>
+</div>
+<div class="square" style="margin-top: 50px; width: 900px; height: 550px; background-color: rgba(250, 255, 253, 0.75); margin-left: 110px; border: 2px solid black;"></div>
 </div>
 </body>
 </html>

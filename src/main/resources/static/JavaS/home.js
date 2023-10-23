@@ -16,10 +16,12 @@ function controleRotasGet(url){
         case "/logout":
             gerarSwal(url);
             break;
-              default:
-                   $.get(url,function(data){
-                    $(".container").html(data);
-            });
+                case "/coleta":
+                          $.get(url,function(data){
+                              $(".container").html(data);
+                              $("#enviar").click(criarColeta);
+                          });
+                          break;
      }
  }
 function gerarSwal(urlSucesso){
