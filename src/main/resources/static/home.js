@@ -8,22 +8,48 @@ $('a').click(function(event){
     controleRotasGet($(this).attr("href"));
 });
 
-$('.nav-brand').off('click');
-
+$('.navbar-brand').off('click');
 
 function controleRotasGet(url){
     switch(url){
         case "/logout":
             gerarSwal(url);
             break;
-                case "/coleta":
-                          $.get(url,function(data){
-                              $(".container").html(data);
-                              $("#enviar").click(criarColeta);
-                          });
-                          break;
-     }
+        case "/coleta":
+            $.get(url,function(data){
+                $(".container").html(data);
+                $("#enviar").click(criarColeta);
+            });
+            break;
+        case "/Home":
+            $.get(url,function(data){
+            $(".container").html(data);
+            });
+            break;
+        case "/Home":
+            $.get(url,function(data){
+            $(".container").html(data);
+            });
+            break;
+        case "/busca":
+            $.get(url,function(data){
+            $(".container").html(data);
+            });
+            break;
+        case "/pontoColeta":
+            $.get(url,function(data){
+            $(".container").html(data);
+            });
+            break;
+        default:
+             $.get(url,function(data){
+                $(".container").html(data);
+             });
+             break;
+    }
  }
+
+
 function gerarSwal(urlSucesso){
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {

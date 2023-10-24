@@ -14,15 +14,18 @@ public class C_Home {
                           Model model) {
         if (session.getAttribute("email") != null) {
             model.addAttribute("email", session.getAttribute("email"));
-            return "Home/home";
+            return "home/home";
         } else {
             return "redirect:/";
         }
     }
     @GetMapping("/Home")
-    public String getPartialHome(HttpServletRequest request){
+    public String getPartialHome(HttpServletRequest request,
+                                 HttpSession session,
+                                 Model model){
         if(request.getHeader("Referer") != null) {
-            return "Home/partial_home";
+            model.addAttribute("email", session.getAttribute("email"));
+            return "home/partial_home";
         }else{
             return "redirect:/";
         }
