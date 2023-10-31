@@ -1,5 +1,11 @@
-<div class="login-box mt-5 " >
+<div class="login-box mt-5" style="overflow: auto; max-height: 550px; background: rgba(57, 175, 57, 0.75) !important;" >
     <h2>Criar ponto de coleta</h2>
+
+    <div class="user-box">
+        <input type="text" id="cidade" name="tipo" placeholder="" required="">
+        <label>Informe o nome da Cidade</label>
+        </input>
+    </div>
     <div class="user-box">
         <input type="text" id="bairro" name="bairro" placeholder="" required="">
         <label>Informe o nome do Bairro</label>
@@ -13,24 +19,31 @@
     </div>
 
     <div class="user-box">
-        <input type="text" id="tipo" name="tipo" placeholder="" required="">
+        <input type="text" id="numero" name="tipo" placeholder="" required="">
+        <label>Informe o numero da Casa</label>
+        </input>
+    </div>
+
+    <div class="user-box">
+        <input type="text" id="tipo_lixo" name="tipo" placeholder="" required="">
         <label>Informe o tipo do lixo eletrônico</label>
         </input>
     </div>
-    <a class="button-login text-center" id="enviar">Criar</a>
+
+    <div class="input-group mb-3 gData textfield user-box">
+        <input  id="data_inicial" name="data" type="datetime-local" class="form-control"
+                placeholder="" aria-label=""
+                aria-describedby="sp_data"/>
+        <label>Data e Hora inicial</label>
+
+    </div>
+    <div class="input-group mb-3 gData textfield user-box">
+        <input  id="data_final" name="data" type="datetime-local" class="form-control"
+                placeholder="" aria-label=""
+                aria-describedby="sp_data"/>
+        <label>Data e Hora final</label>
+    </div>
+    <a id="enviar" class="btn btn-success text-center mt-2" style="margin-left: 125px">Criar</a>
 
 </div>
 
-
-<!--<div class="input-group mb-3 gData textfield">-->
-<!--    <label>Data e Hora inicial da reserva</label>-->
-<!--    <input  id="data_inicio" name="data" type="datetime-local" class="form-control"-->
-<!--            placeholder="" aria-label=""-->
-<!--            aria-describedby="sp_data"/>-->
-<!--</div>-->
-<!--<div class="input-group mb-3 gData textfield">-->
-<!--    <label>Data e Hora final da reserva</label>-->
-<!--    <input  id="data_final" name="data" type="datetime-local" class="form-control"-->
-<!--            placeholder="" aria-label=""-->
-<!--            aria-describedby="sp_data"/>-->
-<!--</div>-->

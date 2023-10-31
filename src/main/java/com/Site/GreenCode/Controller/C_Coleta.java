@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 public class C_Coleta {
 
     @GetMapping("/coleta")
-    public String getNotebooks(HttpServletRequest request) {
+    public String getColeta(HttpServletRequest request) {
         if (request.getHeader("Referer") != null) {
             return "Cadastro/coleta";
         } else {
@@ -25,12 +25,15 @@ public class C_Coleta {
 
     @PostMapping("/coleta")
     @ResponseBody
-    public M_Resposta connectNotebooks(@RequestParam("bairro") String bairro,
-                                       @RequestParam("rua") String rua,
-                                       @RequestParam("tipo_lixo") String tipo_lixo,
-                                       @RequestParam("data_inicial")LocalDateTime data_inicial,
-                                       @RequestParam("data_final") LocalDateTime data_final) {
-        return S_Coleta.cadastrarPontoDeColeta(bairro,rua,tipo_lixo,data_inicial,data_final);
+    public M_Resposta postColeta(
+            @RequestParam("cidade") String cidade,
+            @RequestParam("rua") String rua,
+            @RequestParam("numero") int numero,
+            @RequestParam("tipo_lixo") String tipo_lixo,
+            @RequestParam("bairro") String bairro,
+            @RequestParam("data_inicial") LocalDateTime data_inicial,
+            @RequestParam("data_final") LocalDateTime data_final) {
+        return S_Coleta.cadastrarPontoDeColeta(cidade, rua, bairro, numero, tipo_lixo, data_inicial, data_final);
     }
 }
 

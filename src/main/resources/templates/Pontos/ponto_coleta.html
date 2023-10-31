@@ -1,14 +1,15 @@
-<div class="login-box mt-5 " >
-
-    <h1 class="cursive text-center" style="margin-top:15px; color: white; font-size: 30px;">Ponto de coleta</h1>
-    <div class="linha-horizontal"></div>
-    <h4 class="cursive" th:text="${'Nome: '+ email.nome} + ' '"
-        style="margin-top:15px; margin-left: 20px; color: white; font-size: 25px;"></h4>
-    <h4 class="cursive" th:text="${'E-mail: '+ email.email} + ' '"
-        style="margin-top:15px; margin-left: 20px; color: white; font-size: 25px;"></h4>
-    <h4 class="cursive" th:text="${'Telefone: '+ email.telefone} + ' '"
-        style="margin-top:15px; margin-left: 20px; color: white; font-size: 25px;"></h4>
-    <h4 class="cursive" style="margin-top:15px; margin-left: 20px; color: white; font-size: 25px;">Alterar
-        senha</h4>
-
+<div class="row" style="overflow: auto; max-height: 550px" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div th:each="ponto : ${pdc}" class="col-4 mb-5">
+        <div class="mt-5" style="padding: 10px; margin: 10px; background-color: rgba(57, 175, 57, 0.75); border-radius: 15px">
+            <h1 class="cursive text-center" style="margin-top:15px; color: white; font-size: 30px;">Ponto de Coleta</h1>
+            <div class="linha-horizontal"></div>
+            <h4 class="cursive" th:text="${'Cidade: '+ ponto.cidade}" style="margin-top:15px; margin-left: 20px; color: white; font-size: 25px;"></h4>
+            <h4 class="cursive" th:text="${'Rua: '+ ponto.rua}" style="margin-top:15px; margin-left: 20px; color: white; font-size: 25px;"></h4>
+            <h4 class="cursive" th:text="${'Bairro: '+ ponto.bairro}" style="margin-top:15px; margin-left: 20px; color: white; font-size: 25px;"></h4>
+            <h4 class="cursive" th:text="${'Numero: '+ ponto.numero}" style="margin-top:15px; margin-left: 20px; color: white; font-size: 25px;"></h4>
+            <h4 class="cursive" th:text="${'Tipo de lixo: '+ ponto.tipo_lixo}" style="margin-top:15px; margin-left: 20px; color: white; font-size: 25px;"></h4>
+            <h4 class="cursive" th:text="${'Data Inicial: '+ ponto.data_inicio}" style="margin-top:15px; margin-left: 20px; color: white; font-size: 25px;"></h4>
+            <h4 class="cursive" th:text="${'Data Final: '+ ponto.data_final}" style="margin-top:15px; margin-left: 20px; color: white; font-size: 25px;"></h4>
+        </div>
+    </div>
 </div>

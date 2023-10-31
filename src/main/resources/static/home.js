@@ -36,7 +36,7 @@ function controleRotasGet(url){
             $(".container").html(data);
             });
             break;
-        case "/pontoColeta":
+        case "/ponto_coleta":
             $.get(url,function(data){
             $(".container").html(data);
             });

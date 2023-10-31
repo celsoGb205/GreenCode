@@ -11,19 +11,37 @@ public class M_Coleta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    private Long usuario_id;
-    private String bairro;
+    private Long ponto_id;
+    private String cidade;
     private String rua;
+    private String bairro;
     private String tipo_lixo;
+    private int numero;
     private LocalDateTime data_inicio;
     private LocalDateTime data_final;
 
-    public Long getUsuario_id() {
-        return usuario_id;
+    public Long getPonto_id() {
+        return ponto_id;
     }
 
-    public void setUsuario_id(Long usuario_id) {
-        this.usuario_id = usuario_id;
+    public void setPonto_id(Long ponto_id) {
+        this.ponto_id = ponto_id;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
     }
 
     public String getBairro() {

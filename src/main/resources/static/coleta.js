@@ -1,8 +1,10 @@
 $("#enviar").click(criarColeta);
 
   function criarColeta(){
-  	let bairro = $("#bairro").val();
+  	let cidade = $("#cidade").val();
   	let rua = $("#rua").val();
+  	let bairro = $("#bairro").val();
+  	let numero = $("#numero").val();
   	let tipo_lixo = $("#tipo_lixo").val();
   	let data_inicial = $("#data_inicial").val();
   	let data_final = $("#data_final").val();
@@ -11,8 +13,10 @@ $("#enviar").click(criarColeta);
   		type: "POST",
   		url: "/coleta",
   		data:{
+  		    cidade:cidade,
+  		    rua:rua,
   			bairro:bairro,
-  			rua:rua,
+  			numero:numero,
   			tipo_lixo:tipo_lixo,
   			data_inicial:data_inicial,
   			data_final:data_final,
