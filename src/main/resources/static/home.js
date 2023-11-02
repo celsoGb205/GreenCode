@@ -39,6 +39,23 @@ function controleRotasGet(url){
         case "/ponto_coleta":
             $.get(url,function(data){
             $(".container").html(data);
+           $("#searchCity").keyup(function(){
+               const cityQuery = $(this).val().toLowerCase().trim();
+               const wasteTypeQuery = $("#searchWasteType").val().toLowerCase().trim();
+
+               $(".col-4.mb-5").each(function() {
+                   const cidade = $(this).find(".cursive[data-label='cidade']").text().toLowerCase();
+                   const tipoLixo = $(this).find(".cursive[data-label='tipo_lixo']").text().toLowerCase();
+
+                   if (cidade.includes(cityQuery) && tipoLixo.includes(wasteTypeQuery)) {
+                       $(this).show();
+                   } else {
+                       $(this).hide();
+                   }
+               });
+           });
+
+
             });
             break;
         default:
