@@ -68,4 +68,36 @@ public class S_Pessoa {
 
     }
 
+    public static M_Resposta updateUsuario(String senhaAtual, String novaSenha, String confSenha, Object pessoa){
+        boolean podeEditar = false;
+        String mensagem = "";
+
+        M_Pessoa m_pessoa = (M_Pessoa) pessoa;
+
+        if(senhaAtual.equals(m_pessoa.getSenha())){
+            podeEditar = true;
+
+            if(!novaSenha.equals(confSenha) && !S_Generico.textoEstaVazio(novaSenha)){
+                podeEditar = false;
+                mensagem += "A Nova senha e a confirmação de senha precisam ser iguais!";
+            }
+
+            if(podeEditar){
+                if(!S_Generico.textoEstaVazio(novaSenha)) {
+                    m_pessoa.setSenha(novaSenha);
+                }
+                try {
+                    r_pessoa.save(m_pessoa);
+                    mensagem += "Senha atualizada com sucesso";
+                }catch (DataIntegrityViolationException e){
+                    podeEditar = false;
+                    mensagem += "Falha ao tentar atualizar a senha: "+ e.getMessage();
+                }
+            }
+        }else{
+            mensagem += "Senha inválida, a senha não pode ser editado!";
+        }
+        return new M_Resposta(podeEditar,mensagem);
+    }
+
 }

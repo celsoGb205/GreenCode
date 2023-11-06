@@ -47,8 +47,8 @@ public class M_Pessoa {
         this.telefone = telefone;
     }
 
-    public String getSenha(String senha) {
-        return this.senha;
+    public String getSenha() {
+        return senha;
     }
 
     public void setSenha(String senha) {

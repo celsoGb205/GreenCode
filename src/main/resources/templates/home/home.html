@@ -25,6 +25,7 @@
     <!-- Seu arquivo CSS personalizado -->
     <script src="coleta.js"></script>
     <script src="ponto.js"></script>
+    <script src="alterarsenha.html"></script>
     <script src="home.js" defer></script>
     <link rel="stylesheet" href="home.css"/>
 
@@ -108,8 +109,8 @@
                 style="margin-top:15px; margin-left: 20px; color: white; font-size: 25px;"></h4>
             <h4 class="cursive" th:text="${'Telefone: '+ email.telefone} + ' '"
                 style="margin-top:15px; margin-left: 20px; color: white; font-size: 25px;"></h4>
-            <h4 class="cursive" style="margin-top:15px; margin-left: 20px; color: white; font-size: 25px;">Alterar
-                senha</h4>
+            <a class="cursive" style="margin-top:15px; margin-left: 20px; color: white; font-size: 25px;"
+               href="/alterarsenha">Alterar Senha</a>
 
         </div>
         <div class="square"

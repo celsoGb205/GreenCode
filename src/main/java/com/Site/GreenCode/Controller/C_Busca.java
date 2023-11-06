@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class C_Busca {
 
     @GetMapping("/busca")
-    public String getNotebooks(HttpServletRequest request) {
+    public String getBusca(HttpServletRequest request) {
         if (request.getHeader("Referer") != null) {
             return "Search/busca";
         } else {

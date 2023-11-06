@@ -21,6 +21,11 @@ function controleRotasGet(url){
                 $("#enviar").click(criarColeta);
             });
             break;
+        case "/alterarsenha":
+            $.get(url,function(data){
+            $(".container").html(data);
+            });
+            break;
         case "/Home":
             $.get(url,function(data){
             $(".container").html(data);
