@@ -68,11 +68,11 @@ public class S_Pessoa {
 
     }
 
-    public static M_Resposta updateUsuario(String senhaAtual, String novaSenha, String confSenha, Object pessoa){
+    public static M_Resposta updateUsuario(String senhaAtual, String novaSenha, String confSenha, Object email){
         boolean podeEditar = false;
         String mensagem = "";
 
-        M_Pessoa m_pessoa = (M_Pessoa) pessoa;
+        M_Pessoa m_pessoa = (M_Pessoa) email;
 
         if(senhaAtual.equals(m_pessoa.getSenha())){
             podeEditar = true;
@@ -86,18 +86,18 @@ public class S_Pessoa {
                 if(!S_Generico.textoEstaVazio(novaSenha)) {
                     m_pessoa.setSenha(novaSenha);
                 }
+
                 try {
                     r_pessoa.save(m_pessoa);
-                    mensagem += "Senha atualizada com sucesso";
+                    mensagem += "Perfil atualizado com sucesso";
                 }catch (DataIntegrityViolationException e){
                     podeEditar = false;
-                    mensagem += "Falha ao tentar atualizar a senha: "+ e.getMessage();
+                    mensagem += "Falha ao tentar atualizar o cadastro: "+ e.getMessage();
                 }
             }
         }else{
-            mensagem += "Senha inválida, a senha não pode ser editado!";
+            mensagem += "Senha inválida, o cadastro não pode ser editado!";
         }
         return new M_Resposta(podeEditar,mensagem);
     }
-
 }

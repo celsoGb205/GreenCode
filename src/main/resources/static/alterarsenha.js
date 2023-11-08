@@ -1,5 +1,3 @@
-$("#enviar").click(salvarSenha);
-
 function salvarSenha(){
     let senhaAtual = $("#senhaAtual").val();
     let novaSenha = $("#novaSenha").val();
@@ -7,7 +5,7 @@ function salvarSenha(){
 
     $.ajax({
         type: "POST",
-        url: "/ alterarsenha",
+        url: "/alterarsenha",
         data:{
             senhaAtual:senhaAtual,
             novaSenha:novaSenha,
@@ -15,13 +13,13 @@ function salvarSenha(){
         },
         success: function(data){
             if(data.sucesso){
-                alertaSucesso("Alterado com sucesso!");
+                alerta("Alterado com sucesso!");
             }else{
-                alert(data.mensagem);
+                alert("Deu ruim");
             }
         },
         error: function(){
             alert("Deu ruim");
         }
-    })
+    });
 }

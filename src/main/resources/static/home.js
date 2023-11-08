@@ -23,12 +23,13 @@ function controleRotasGet(url){
             break;
         case "/alterarsenha":
             $.get(url,function(data){
-            $(".container").html(data);
+                $(".container").html(data);
+                $("#alterar").click(salvarSenha);
             });
             break;
         case "/Home":
             $.get(url,function(data){
-            $(".container").html(data);
+                $(".container").html(data);
             });
             break;
         case "/Home":

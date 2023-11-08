@@ -15,7 +15,7 @@ public class C_AlterarSenha {
     @GetMapping("/alterarsenha")
     public String getAlterarSenha(HttpServletRequest request) {
         if (request.getHeader("Referer") != null) {
-            return "home/alterarsenha";
+            return "Alterar/alterarsenha";
         } else {
             return "redirect:/";
         }
@@ -27,7 +27,8 @@ public class C_AlterarSenha {
                                       @RequestParam("novaSenha") String novaSenha,
                                       @RequestParam("confSenha") String confSenha,
                                       HttpSession session
+
     ) {
-        return S_Pessoa.updateUsuario(senhaAtual, novaSenha, confSenha, session.getAttribute("pessoa"));
+        return S_Pessoa.updateUsuario(senhaAtual, novaSenha, confSenha,session.getAttribute("email"));
     }
 }
