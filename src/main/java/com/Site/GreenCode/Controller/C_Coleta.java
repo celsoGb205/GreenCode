@@ -1,9 +1,11 @@
 package com.Site.GreenCode.Controller;
 
 import com.Site.GreenCode.Model.M_Resposta;
+import com.Site.GreenCode.Service.S_Cidade;
 import com.Site.GreenCode.Service.S_Coleta;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,8 +17,9 @@ import java.time.LocalDateTime;
 public class C_Coleta {
 
     @GetMapping("/coleta")
-    public String getColeta(HttpServletRequest request) {
+    public String getColeta(HttpServletRequest request, Model model) {
         if (request.getHeader("Referer") != null) {
+            model.addAttribute("cidades", S_Cidade.getCidades());
             return "Cadastro/coleta";
         } else {
             return "redirect:/";

@@ -1,10 +1,15 @@
-<div class="login-box mt-5" style="overflow: auto; max-height: 550px; background: rgba(57, 175, 57, 0.75) !important;" >
+<div class="login-box mt-5" style="overflow: auto; max-height: 550px; background: rgba(57, 175, 57, 0.75) !important;"
+     xmlns:style="http://www.w3.org/1999/xhtml">
     <h2>Criar ponto de coleta</h2>
 
     <div class="user-box">
-        <input type="text" id="cidade" name="tipo" placeholder="" required="">
-        <label>Informe o nome da Cidade</label>
-        </input>
+<!--        <input type="text" id="cidade" name="tipo" placeholder="" required="">-->
+<!--        <label>Informe o nome da Cidade</label>-->
+<!--        </input>-->
+
+        <select id="cidade" style=" ; margin-bottom: 15px; width: 350px; height: 35px; background-color: rgba(57, 175, 57, 0.75); ; color: white;">
+            <option th:each="a : ${cidades}" th:text="${a.cidade + ' - ' + a.uf}"></option>
+        </select>
     </div>
     <div class="user-box">
         <input type="text" id="bairro" name="bairro" placeholder="" required="">
@@ -24,11 +29,15 @@
         </input>
     </div>
 
-    <div class="user-box">
-        <select class="selectpicker">
-            <option>Mustard</option>
-            <option>Ketchup</option>
-            <option>Relish</option>
+    <div class="input-group mb-3 gData textfield user-box">
+        <h6 style="color: #fff">Selecione o tipo de lixo:</h6>
+        <select id="tipo_lixo" style=" ; margin-bottom: 15px; width: 350px; height: 35px; background-color: rgba(57, 175, 57, 0.75); ; color: white;">
+            <option>Bateria</option>
+            <option>Celular</option>
+            <option>Pilha</option>
+            <option>Televisão</option>
+            <option>Computador</option>
+            <option>Outros</option>
         </select>
     </div>
 

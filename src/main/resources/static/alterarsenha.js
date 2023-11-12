@@ -13,7 +13,7 @@ function salvarSenha(){
         },
         success: function(data){
             if(data.sucesso){
-                alerta("Alterado com sucesso!");
+                alert("Alterado com sucesso!");
             }else{
                 alert("Deu ruim");
             }

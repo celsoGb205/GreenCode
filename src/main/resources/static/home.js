@@ -1,12 +1,15 @@
-$('a').click(function(event){
-    event.preventDefault();
-    if(!$(this).hasClass('btn')){
-    $('a').removeClass('active disabled');
-    $(this).addClass('active disabled');
-    }
+function disableLink(){
+    $('a').click(function(event){
+        event.preventDefault();
+        if(!$(this).hasClass('btn')){
+        $('a').removeClass('active disabled');
+        $(this).addClass('active disabled');
+        }
+        controleRotasGet($(this).attr("href"));
+    });
+}
 
-    controleRotasGet($(this).attr("href"));
-});
+disableLink();
 
 $('.navbar-brand').off('click');
 
@@ -30,11 +33,12 @@ function controleRotasGet(url){
         case "/Home":
             $.get(url,function(data){
                 $(".container").html(data);
+                disableLink();
             });
             break;
         case "/Home":
             $.get(url,function(data){
-            $(".container").html(data);
+                $(".container").html(data);
             });
             break;
         case "/busca":

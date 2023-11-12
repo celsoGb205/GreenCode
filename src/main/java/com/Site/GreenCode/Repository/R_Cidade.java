@@ -9,8 +9,6 @@ import java.util.ArrayList;
 
 @Repository
 public interface R_Cidade extends JpaRepository<M_Cidade, Long> {
-    @Query(value="select cod_cidade, cidade||' - '||uf as cidade \n" +
-            "from cidades\n" +
-            "order by cidade", nativeQuery = true)
+    @Query(value="select * from cidades", nativeQuery = true)
     ArrayList<M_Cidade> listCidades();
 }

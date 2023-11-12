@@ -27,7 +27,6 @@ public class C_AlterarSenha {
                                       @RequestParam("novaSenha") String novaSenha,
                                       @RequestParam("confSenha") String confSenha,
                                       HttpSession session
-
     ) {
         return S_Pessoa.updateUsuario(senhaAtual, novaSenha, confSenha,session.getAttribute("email"));
     }

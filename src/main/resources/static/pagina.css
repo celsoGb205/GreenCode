@@ -13,7 +13,7 @@ body * {
 .main-login{
   width: 100vw;/*width=largura e 100vw=100% da tela*/
   height: 100vh;/*height=altura*/
-  background: #201b2c;
+  background: #000000e6;
   display: flex; /*faz com que as coisas fiquem lado a lado*/
   justify-content: center; /*centraliza  as coisas no eixo X*/
   align-items: center; /*centraliza as coisas no eixo Y*/
@@ -30,7 +30,7 @@ body * {
 
 .left-login > h1{
   font-size: 3vw;
-  color: #77ffc0;
+  color: #ffffff;
 }
 
 .animated{
@@ -52,13 +52,13 @@ body * {
   align-items: center;
   flex-direction: column;
   padding: 30px 35px;/*espaço entre a borda e o conteudo do site*/
-  background: #2f2841;
+   background-color: rgba(57, 175, 57, 0.75); !important;
   border-radius: 20px; /*para a borda*/
   box-shadow: 0px 10px 40px #00000056; /*sombra do card*/
 }
 
 .card-login > h1 {
-  color: #00ff88;
+  color: #fff;
   font-weight: 800; /*peso da font*/
   margin:0;
 }
@@ -77,8 +77,8 @@ body * {
   border: none;
   border-radius: 10px;
   padding: 15px;
-  background: #514869;
-  color: #f0ffffde;
+  background: #ffffff73;
+  color: #f0ffff;
   font-size: 12pt; /*pt=unidade de medida para fontes*/
   box-shadow: 0px 10px 40px #00000056;
   outline: none;
@@ -86,12 +86,12 @@ body * {
 }
 
 .textfield > label{
-  color: #f0ffffde;
+  color: #fffdfdfc;
   margin-bottom: 10px;/*margem para baixo*/
 }
 
 .textfield > input::placeholder{
-  color: #f0ffff94;
+  color: #ffffffff;
 }
 
 .button-login{
@@ -103,12 +103,12 @@ body * {
   outline: none;
   text-transform: uppercase;/*deixar as letras em caixa alta*/
   font-weight: 800;
-  letter-spacing: 3px; /*espaçamento*/
-  color: #2b134b;
-  background: #00ff88;
-  cursor: pointer;
-  box-shadow: 0px 10px 40px -12px #00ff1052;
-  text-decoration: none !important;
+   letter-spacing: 3px; /*espaçamento*/
+    color: #ffffff;
+    background: #000000;
+    cursor: pointer;
+    box-shadow: 0px 10px 40px -12px #000000;
+    text-decoration: none !important;
 }
 .button-cadastro{
   width: 100%;
@@ -120,11 +120,11 @@ body * {
   text-transform: uppercase;/*deixar as letras em caixa alta*/
   font-weight: 800;
   letter-spacing: 3px; /*espaçamento*/
-  color: #2b134b;
-  background: #00ff88;
-  cursor: pointer;
-  box-shadow: 0px 10px 40px -12px #00ff1052;
-  text-decoration: none !important;
+     color: #ffffff;
+     background: #000000;
+     cursor: pointer;
+     box-shadow: 0px 10px 40px -12px #000000;
+     text-decoration: none !important;
 }
 
 @media only screen and (max-width:950px){
