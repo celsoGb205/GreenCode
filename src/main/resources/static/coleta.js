@@ -1,5 +1,6 @@
 $("#enviar").click(criarColeta);
 
+
   function criarColeta(){
   	let cidade = $("#cidade").val();
   	let rua = $("#rua").val();

@@ -1,16 +1,15 @@
 <div class="login-box mt-5" style="overflow: auto; max-height: 550px; background: rgba(57, 175, 57, 0.75) !important;"
-     xmlns:style="http://www.w3.org/1999/xhtml">
+    >
     <h2>Criar ponto de coleta</h2>
 
     <div class="user-box">
-<!--        <input type="text" id="cidade" name="tipo" placeholder="" required="">-->
-<!--        <label>Informe o nome da Cidade</label>-->
-<!--        </input>-->
-
-        <select id="cidade" style=" ; margin-bottom: 15px; width: 350px; height: 35px; background-color: rgba(57, 175, 57, 0.75); ; color: white;">
+        <select class="search-select" id="cidade" style="margin-bottom: 15px; width: 350px; height: 35px; background-color: rgba(57, 175, 57, 0.75); color: white;">
+            <option  class="search-select" value="" selected disabled>Select Option</option>
             <option th:each="a : ${cidades}" th:text="${a.cidade + ' - ' + a.uf}"></option>
         </select>
+
     </div>
+
     <div class="user-box">
         <input type="text" id="bairro" name="bairro" placeholder="" required="">
         <label>Informe o nome do Bairro</label>
