@@ -2,7 +2,7 @@ $("#enviar").click(criarColeta);
 
 
   function criarColeta(){
-  	let cidade = $("#cidade").val();
+  	let cidade = $("#cidadeList option[value='"+$("#cidade").val()+"']").data('value');
   	let rua = $("#rua").val();
   	let bairro = $("#bairro").val();
   	let numero = $("#numero").val();
@@ -24,7 +24,7 @@ $("#enviar").click(criarColeta);
 
   		},
   		success:function(data){
-  			alert("Ponto criado com Sucesso");
+  			alert("Sucesso ao criar ponto de coleta");
   		},
   		error:function(){
   			alert("Deu ruim");

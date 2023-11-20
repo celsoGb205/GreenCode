@@ -1,9 +1,11 @@
 package com.Site.GreenCode.Controller;
 
+import com.Site.GreenCode.Model.M_Pessoa;
 import com.Site.GreenCode.Model.M_Resposta;
 import com.Site.GreenCode.Service.S_Cidade;
 import com.Site.GreenCode.Service.S_Coleta;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,14 +31,16 @@ public class C_Coleta {
     @PostMapping("/coleta")
     @ResponseBody
     public M_Resposta postColeta(
-            @RequestParam("cidade") String cidade,
+            @RequestParam("cidade") String cod_cidade,
             @RequestParam("rua") String rua,
-            @RequestParam("numero") int numero,
-            @RequestParam("tipo_lixo") String tipo_lixo,
             @RequestParam("bairro") String bairro,
+            @RequestParam("numero") String numero,
+            @RequestParam("tipo_lixo") String tipo_lixo,
             @RequestParam("data_inicial") LocalDateTime data_inicial,
-            @RequestParam("data_final") LocalDateTime data_final) {
-        return S_Coleta.cadastrarPontoDeColeta(cidade, rua, bairro, numero, tipo_lixo, data_inicial, data_final);
+            @RequestParam("data_final") LocalDateTime data_final,
+            HttpSession session) {
+        Object usuario = session.getAttribute("email");
+        return S_Coleta.cadastrarPontoDeColeta(cod_cidade, rua, bairro, numero, tipo_lixo, data_inicial, data_final, (M_Pessoa) usuario);
     }
 }
 

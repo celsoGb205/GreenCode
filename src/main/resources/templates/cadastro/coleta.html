@@ -3,11 +3,12 @@
     <h2>Criar ponto de coleta</h2>
 
     <div class="user-box">
-        <select class="search-select" id="cidade" style="margin-bottom: 15px; width: 350px; height: 35px; background-color: rgba(57, 175, 57, 0.75); color: white;">
-            <option  class="search-select" value="" selected disabled>Select Option</option>
-            <option th:each="a : ${cidades}" th:text="${a.cidade + ' - ' + a.uf}"></option>
-        </select>
-
+        <input id="cidade" list="cidadeList" class="search-select">
+        <label>Informe o nome da Cidade</label>
+        <datalist id="cidadeList">
+            <option value=""  disabled>Select Option</option>
+            <option th:each="a : ${cidades}" th:data-value="${a.cod_cidade}" th:value="${a.cidade + ' - ' + a.uf}"></option>
+        </datalist>
     </div>
 
     <div class="user-box">
@@ -24,7 +25,7 @@
 
     <div class="user-box">
         <input type="text" id="numero" name="tipo" placeholder="" required="">
-        <label>Informe o numero da Casa</label>
+        <label>Informe o numero</label>
         </input>
     </div>
 

@@ -7,6 +7,7 @@ import java.time.LocalDate;
 @Entity
 @Table(name="cad_pessoa")
 public class M_Pessoa {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

@@ -12,13 +12,15 @@ public class M_Coleta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Long ponto_id;
-    private String cidade;
+    private Long cod_cidade;
     private String rua;
     private String bairro;
     private String tipo_lixo;
     private int numero;
     private LocalDateTime data_inicio;
     private LocalDateTime data_final;
+    private Long usuario_id;
+    private boolean ativo;
 
     public Long getPonto_id() {
         return ponto_id;
@@ -28,12 +30,12 @@ public class M_Coleta {
         this.ponto_id = ponto_id;
     }
 
-    public String getCidade() {
-        return cidade;
+    public Long getCidade() {
+        return cod_cidade;
     }
 
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
+    public void setCidade(Long cod_cidade) {
+        this.cod_cidade = cod_cidade;
     }
 
     public int getNumero() {
@@ -64,6 +66,7 @@ public class M_Coleta {
         return tipo_lixo;
     }
 
+
     public void setTipo_lixo(String tipo_lixo) {
         this.tipo_lixo = tipo_lixo;
     }
@@ -82,5 +85,29 @@ public class M_Coleta {
 
     public void setData_final(LocalDateTime data_final) {
         this.data_final = data_final;
+    }
+
+    public Long getCod_cidade() {
+        return cod_cidade;
+    }
+
+    public void setCod_cidade(Long cod_cidade) {
+        this.cod_cidade = cod_cidade;
+    }
+
+    public Long getUsuario_id() {
+        return usuario_id;
+    }
+
+    public void setUsuario_id(Long usuario_id) {
+        this.usuario_id = usuario_id;
+    }
+
+    public boolean getAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
     }
 }

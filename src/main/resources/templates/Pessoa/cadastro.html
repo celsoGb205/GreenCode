@@ -171,7 +171,7 @@ letter-spacing: 3px; /*espaçamento*/
 
             <h1>Cadastro</h1>
             <div class="textfield">
-                <label>Usuário</label>
+                <label>Nome</label>
                 <input th:value="${nome}" id="nome" type="text" name="nome" placeholder="Nome">
             </div>
             <div class="textfield">
@@ -187,6 +187,9 @@ letter-spacing: 3px; /*espaçamento*/
                 <input th:value="${senha}" id="senha" type="password" name="senha" placeholder="Senha">
             </div>
             <input id="enviar" value="Finalizar" type="submit" class="button-cadastrar">
+            <a type="submit" class="button-cadastrar" href="/">
+                <label style="margin-left: 200px">Retornar</label>
+            </a>
         </div>
     </div>
     <script>

@@ -50,6 +50,23 @@ function controleRotasGet(url){
         case "/ponto_coleta":
             $.get(url,function(data){
             $(".container").html(data);
+           $("#searchWasteType").keyup(function(){
+                          const wasteTypeQuery = $(this).val().toLowerCase().trim();
+                          const cityQuery = $("#searchCity").val().toLowerCase().trim();
+
+                          $(".col-4.mb-5").each(function() {
+                              const cidade = $(this).find(".cursive[data-label='cidade']").text().toLowerCase();
+                              const tipoLixo = $(this).find(".cursive[data-label='tipo_lixo']").text().toLowerCase();
+
+                              if (cidade.includes(cityQuery) && tipoLixo.includes(wasteTypeQuery)) {
+                                  $(this).show();
+                              } else {
+                                  $(this).hide();
+                              }
+                          });
+                      });
+
+
            $("#searchCity").keyup(function(){
                const cityQuery = $(this).val().toLowerCase().trim();
                const wasteTypeQuery = $("#searchWasteType").val().toLowerCase().trim();
@@ -65,7 +82,16 @@ function controleRotasGet(url){
                    }
                });
            });
-
+$("#btncheck1").change(function(){
+	if($("#btncheck1").prop("checked")){
+		$(".oto").hide();
+	}else{
+		$(".oto").show();
+	}
+});
+$("#excluir").click(function(){
+ excluirDado();
+});
 
             });
             break;
@@ -77,7 +103,24 @@ function controleRotasGet(url){
     }
  }
 
-
+function excluirDado(){
+Swal.fire({
+  title: "Você tem certeza?",
+  text: "Você deseja excluir esse ponto?",
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#3085d6",
+  cancelButtonColor: "#d33",
+  confirmButtonText: "Sim"
+}).then((result) => {
+  if (result.isConfirmed) {
+    Swal.fire({
+      title: "Deletado!",
+      text: "Você deletou esse ponto.",
+      icon: "success"
+    });
+  }
+});}
 function gerarSwal(urlSucesso){
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {

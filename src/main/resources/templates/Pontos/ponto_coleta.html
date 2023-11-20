@@ -4,11 +4,14 @@
     <input type="text" id="searchWasteType" style="border-radius: 5px;" placeholder="Insira o tipo de resíduo...">
 
     <label for="searchCity" style="color:#fff;">Pesquisar por cidade:</label>
-    <input type="text" id="searchCity" style="border-radius: 5px;" placeholder="Entre na cidade...">
+    <input type="text" id="searchCity" style="border-radius: 5px;" placeholder="Insira o nome da cidade...">
 </div>
-
-<div class="row mt-5" style="overflow: auto; max-height: 550px">
-    <div th:each="ponto : ${pdc}" class="col-4 mb-5">
+<div class="btn-group mt-5" role="group" aria-label="Basic checkbox toggle button group">
+    <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
+    <label class="btn btn-outline-light" for="btncheck1">Meus Pontos</label>
+</div>
+<div class="row mt-5" style="overflow: auto; max-height: 550px" id="pontos">
+    <div th:each="ponto : ${pdc}" th:class="${email.id == ponto.usuario_id ? 'col-4 mb-5' : 'col-4 mb-5 oto'}">
         <div class="mt-5"
              style="padding: 10px; margin: 10px; background-color: rgba(57, 175, 57, 0.75); border-radius: 15px">
             <h1 class="cursive text-center" style="margin-top:15px; color: white; font-size: 30px;">Ponto de Coleta</h1>
@@ -27,6 +30,16 @@
                 style="margin-top:15px; margin-left: 20px; color: white; font-size: 25px;"></h4>
             <h4 class="cursive" th:text="${'Data Final: '+ ponto.data_final}" data-label="data_final"
                 style="margin-top:15px; margin-left: 20px; color: white; font-size: 25px;"></h4>
+
+            <div class="row mt-5">
+                <button class="btn btn-success col-3"
+                        style="margin-left: 120px; margin-right: 25px; margin-top: 5px; margin-bottom: 5px"
+                        th:if="${email.id == ponto.usuario_id}">Editar
+                </button>
+                <button id="excluir" class="btn btn-danger col-3" style="margin-top: 5px; margin-bottom: 5px"
+                        th:if="${email.id == ponto.usuario_id}">Excluir
+                </button>
+            </div>
         </div>
     </div>
 </div>
