@@ -29,16 +29,13 @@
         </input>
     </div>
 
-    <div class="input-group mb-3 gData textfield user-box">
-        <h6 style="color: #fff">Selecione o tipo de lixo:</h6>
-        <select id="tipo_lixo" style=" ; margin-bottom: 15px; width: 350px; height: 35px; background-color: rgba(57, 175, 57, 0.75); ; color: white;">
-            <option>Bateria</option>
-            <option>Celular</option>
-            <option>Pilha</option>
-            <option>Televisão</option>
-            <option>Computador</option>
-            <option>Outros</option>
-        </select>
+    <div class="user-box">
+        <input  id="tipo_lixo" list="LixoList" class="search-select" multiple>
+        <label>Informe o nome do Lixo</label>
+        <datalist id="LixoList">
+            <option value=""  disabled>Select Option</option>
+            <option th:each="r : ${tipo_residuo}" th:data-value="${r.id}" th:value="${r.nome}"></option>
+        </datalist>
     </div>
 
     <div class="input-group mb-3 gData textfield user-box">

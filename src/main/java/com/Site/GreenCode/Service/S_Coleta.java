@@ -9,7 +9,6 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -57,12 +56,10 @@ public class S_Coleta {
         }
         if (podeEnviar) {
             M_Coleta m_coleta = new M_Coleta();
-            M_Pessoa m_pessoa = new M_Pessoa();
             m_coleta.setCidade(Long.valueOf(cod_cidade));
             m_coleta.setRua(rua);
             m_coleta.setBairro(bairro);
             m_coleta.setNumero(Integer.parseInt(numero));
-            m_coleta.setTipo_lixo(tipo_lixo);
             m_coleta.setData_inicio(data_inicial);
             m_coleta.setData_final(data_final);
             m_coleta.setUsuario_id(usuario.getId());
@@ -77,6 +74,13 @@ public class S_Coleta {
         }
         return new M_Resposta(podeEnviar,mensagem);
     }
+public static M_Coleta ExcluirPonto(String id) {
+    M_Coleta m_coleta = r_coleta.buscarPorId(Long.parseLong(id));
+    m_coleta.setAtivo(false);
+    r_coleta.save(m_coleta);
+    return m_coleta;
+}
+
 
     public static List<M_PontosColeta> listarPontosColeta() {
         return r_coleta.listarCidadesDosPontosColeta();

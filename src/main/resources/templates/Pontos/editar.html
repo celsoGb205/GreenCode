@@ -1,0 +1,59 @@
+<div class="login-box mt-5" style="overflow: auto; max-height: 550px; background: rgba(57, 175, 57, 0.75) !important;">
+    <h2>Editar ponto de coleta</h2>
+
+    <div class="user-box">
+        <input id="Ncidade" list="cidadeList" class="search-select">
+        <label>Informe o nome da Cidade</label>
+        <datalist id="cidadeList">
+            <option value=""  disabled>Select Option</option>
+            <option th:each="a : ${cidades}" th:data-value="${a.cod_cidade}" th:value="${a.cidade + ' - ' + a.uf}"></option>
+        </datalist>
+    </div>
+
+    <div class="user-box">
+        <input type="text" id="Nbairro" name="bairro" placeholder="" required="">
+        <label>Informe o nome do Bairro</label>
+        </input>
+    </div>
+
+    <div class="user-box">
+        <input type="text" id="Nrua" name="rua" placeholder="" required="">
+        <label>Informe o nome da Rua</label>
+        </input>
+    </div>
+
+    <div class="user-box">
+        <input type="text" id="Nnumero" name="tipo" placeholder="" required="">
+        <label>Informe o numero</label>
+        </input>
+    </div>
+
+    <div class="input-group mb-3 gData textfield user-box">
+        <h6 style="color: #fff">Selecione o tipo de lixo:</h6>
+        <select multiple id="Ntipo_lixo" style=" ; margin-bottom: 15px; width: 350px; height: 35px; background-color: rgba(57, 175, 57, 0.75); ; color: white;">
+            <option>Bateria</option>
+            <option>Celular</option>
+            <option>Pilha</option>
+            <option>Televisão</option>
+            <option>Computador</option>
+            <option>Outros</option>
+        </select>
+    </div>
+
+    <div class="input-group mb-3 gData textfield user-box">
+        <input  id="Ndata_inicial" name="data" type="datetime-local" class="form-control"
+                placeholder="" aria-label=""
+                aria-describedby="sp_data"/>
+        <label>Data e Hora inicial</label>
+
+    </div>
+    <div class="input-group mb-3 gData textfield user-box">
+        <input  id="Ndata_final" name="data" type="datetime-local" class="form-control"
+                placeholder="" aria-label=""
+                aria-describedby="sp_data"/>
+        <label>Data e Hora final</label>
+    </div>
+    <a id="editar" class="btn btn-success text-center mt-2" style="margin-left: 125px">Atualizar</a>
+
+</div>
+

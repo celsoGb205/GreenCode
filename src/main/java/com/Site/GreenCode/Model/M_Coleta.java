@@ -103,7 +103,7 @@ public class M_Coleta {
         this.usuario_id = usuario_id;
     }
 
-    public boolean getAtivo() {
+    public boolean getAtivo(boolean ativo) {
         return ativo;
     }
 

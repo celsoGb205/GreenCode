@@ -13,5 +13,7 @@ public interface M_PontosColeta {
     LocalDateTime getData_inicio();
     LocalDateTime getData_final();
     Long getUsuario_id();
+    boolean getAtivo();
+    Long getPonto_id();
 
 }

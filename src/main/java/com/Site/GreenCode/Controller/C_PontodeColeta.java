@@ -1,6 +1,6 @@
 package com.Site.GreenCode.Controller;
 
-import com.Site.GreenCode.Service.S_Cidade;
+import com.Site.GreenCode.Model.M_Coleta;
 import com.Site.GreenCode.Service.S_Coleta;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class C_PontodeColeta {
@@ -31,5 +34,11 @@ public class C_PontodeColeta {
         } else {
             return "redirect:/";
         }
+    }
+    @PostMapping("/deletar")
+    @ResponseBody
+    public M_Coleta deletarPonto(@RequestParam("id") String id){
+        return S_Coleta.ExcluirPonto(id);
+
     }
 }

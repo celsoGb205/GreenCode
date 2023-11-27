@@ -92,9 +92,6 @@ public class S_Pessoa {
                     mensagem += "Perfil atualizado com sucesso";
                 }catch (DataIntegrityViolationException e){
                     podeEditar = false;
-                    if(e.getMessage().contains("u_email")){
-                        mensagem += "O Email informado já foi cadastrado!";
-                    }
                     mensagem += "Falha ao tentar atualizar o cadastro: "+ e.getMessage();
                 }
             }

@@ -26,6 +26,7 @@
     <script src="coleta.js"></script>
     <script src="ponto.js"></script>
     <script src="alterarsenha.js"></script>
+    <script src="EditarPonto.js"></script>
     <script src="home.js" defer></script>
     <link rel="stylesheet" href="home.css"/>
 <!--    <link rel="stylesheet" href="coleta.css"/>-->
@@ -35,7 +36,7 @@
     <!-- Estilos adicionais -->
     <style>
         .navbar-green {
-            background-color:#000000;
+            background-color:#272626;
         }
         .square {
             width: 500px; /* Largura do quadrado */
@@ -47,8 +48,8 @@
         }
 
         .navbar img {
-            width: 80px;
-            height: 80px;
+            width: 110px;
+            height: 94px;
             margin-top: 10px;
         }
 
@@ -118,8 +119,13 @@
         <div class="square"
              style="margin-top: 80px; width: 750px; height: 400px; background-color: #fff; margin-left: 110px; border: 2px solid black;">
 
-            <h4 style="margin-top:20px; margin-left: 10px; color: black; font-size: 25px;">Dicas para os criadores de Pontos de Coleta.</h4>
-            <h4 style="margin-top:20px; margin-left: 10px; color: black; font-size: 25px;"> Se não há lugar para descarte, aqui vão algumas opções:</h4>
+            <h2>Solicitações:</h2>
+            <ul>
+                <li th:each="solicitacao : ${solicitacoes}">
+                    <!-- Exiba os detalhes da solicitação -->
+                    <p th:text="${'Tipo: ' + solicitacao.tipo + ', Quantidade: ' + solicitacao.quantidade}"></p>
+                </li>
+            </ul>
         </div>
     </div>
 </div>

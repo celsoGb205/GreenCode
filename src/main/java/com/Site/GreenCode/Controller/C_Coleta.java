@@ -4,6 +4,7 @@ import com.Site.GreenCode.Model.M_Pessoa;
 import com.Site.GreenCode.Model.M_Resposta;
 import com.Site.GreenCode.Service.S_Cidade;
 import com.Site.GreenCode.Service.S_Coleta;
+import com.Site.GreenCode.Service.S_Residuo;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
@@ -22,6 +23,7 @@ public class C_Coleta {
     public String getColeta(HttpServletRequest request, Model model) {
         if (request.getHeader("Referer") != null) {
             model.addAttribute("cidades", S_Cidade.getCidades());
+            model.addAttribute("tipo_residuo", S_Residuo.getResiduos());
             return "Cadastro/coleta";
         } else {
             return "redirect:/";
