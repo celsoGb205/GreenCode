@@ -22,7 +22,7 @@ function controleRotasGet(url){
     $.get(url,function(data){
       $(".container").html(data);
       $("#enviar").click(criarColeta);
-
+      loadSelectDropDown();
     });
   }else if(url == "/alterarsenha"){
            $.get(url,function(data){

@@ -44,5 +44,10 @@ public class C_Coleta {
         Object usuario = session.getAttribute("email");
         return S_Coleta.cadastrarPontoDeColeta(cod_cidade, rua, bairro, numero, tipo_lixo, data_inicial, data_final, (M_Pessoa) usuario);
     }
+
+    @GetMapping("/teste")
+    public String teste(){
+        return "Teste/teste";
+    }
 }
 

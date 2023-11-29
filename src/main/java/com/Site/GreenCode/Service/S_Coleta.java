@@ -1,9 +1,6 @@
 package com.Site.GreenCode.Service;
 
-import com.Site.GreenCode.Model.M_Coleta;
-import com.Site.GreenCode.Model.M_Pessoa;
-import com.Site.GreenCode.Model.M_PontosColeta;
-import com.Site.GreenCode.Model.M_Resposta;
+import com.Site.GreenCode.Model.*;
 import com.Site.GreenCode.Repository.R_Coleta;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
@@ -65,6 +62,9 @@ public class S_Coleta {
             m_coleta.setUsuario_id(usuario.getId());
             m_coleta.setAtivo(true);
 
+            M_Pcxtr m_pcxtr = new M_Pcxtr();
+            m_pcxtr.setId_pc(m_coleta.getPonto_id());
+            //m_pcxtr.setId_tr();
             try {
                 r_coleta.save(m_coleta);
                 mensagem += "Ponto de Coleta salvo com sucesso";
@@ -74,15 +74,20 @@ public class S_Coleta {
         }
         return new M_Resposta(podeEnviar,mensagem);
     }
-public static M_Coleta ExcluirPonto(String id) {
-    M_Coleta m_coleta = r_coleta.buscarPorId(Long.parseLong(id));
-    m_coleta.setAtivo(false);
-    r_coleta.save(m_coleta);
-    return m_coleta;
-}
+
+    public static M_Coleta EditarPonto(String id){
+        M_Coleta m_coleta = r_coleta.buscarPorId(Long.parseLong(id));
+        return m_coleta;
+    }
+    public static M_Coleta ExcluirPonto(String id) {
+        M_Coleta m_coleta = r_coleta.buscarPorId(Long.parseLong(id));
+        m_coleta.setAtivo(false);
+        r_coleta.save(m_coleta);
+        return m_coleta;
+    }
 
 
     public static List<M_PontosColeta> listarPontosColeta() {
         return r_coleta.listarCidadesDosPontosColeta();
     }
-}
+    }

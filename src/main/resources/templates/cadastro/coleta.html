@@ -1,10 +1,9 @@
-<div class="login-box mt-5" style="overflow: auto; max-height: 550px; background: rgba(57, 175, 57, 0.75) !important;"
-    >
+<div class="login-box mt-5" style="overflow: auto; max-height: 550px; background: rgba(57, 175, 57, 0.75) !important;">
     <h2>Criar ponto de coleta</h2>
 
     <div class="user-box">
         <input id="cidade" list="cidadeList" class="search-select">
-        <label>Informe o nome da Cidade</label>
+        <label class="wlabel">Informe o nome da Cidade</label>
         <datalist id="cidadeList">
             <option value=""  disabled>Select Option</option>
             <option th:each="a : ${cidades}" th:data-value="${a.cod_cidade}" th:value="${a.cidade + ' - ' + a.uf}"></option>
@@ -13,45 +12,53 @@
 
     <div class="user-box">
         <input type="text" id="bairro" name="bairro" placeholder="" required="">
-        <label>Informe o nome do Bairro</label>
+        <label class="wlabel">Informe o nome do Bairro</label>
         </input>
     </div>
 
     <div class="user-box">
         <input type="text" id="rua" name="rua" placeholder="" required="">
-        <label>Informe o nome da Rua</label>
+        <label class="wlabel">Informe o nome da Rua</label>
         </input>
     </div>
 
     <div class="user-box">
         <input type="text" id="numero" name="tipo" placeholder="" required="">
-        <label>Informe o numero</label>
+        <label class="wlabel">Informe o número</label>
         </input>
     </div>
 
-    <div class="user-box">
-        <input  id="tipo_lixo" list="LixoList" class="search-select" multiple>
-        <label>Informe o nome do Lixo</label>
-        <datalist id="LixoList">
-            <option value=""  disabled>Select Option</option>
-            <option th:each="r : ${tipo_residuo}" th:data-value="${r.id}" th:value="${r.nome}"></option>
-        </datalist>
+<!--    <div class="user-box">-->
+<!--        <input  id="tipo_lixo" list="LixoList" class="search-select" multiple>-->
+<!--        <label>Informe o nome do Lixo</label>-->
+<!--        <datalist id="LixoList">-->
+<!--            <option value=""  disabled>Select Option</option>-->
+<!--            <option th:each="r : ${tipo_residuo}" th:data-value="${r.id}" th:value="${r.nome}"></option>-->
+<!--        </datalist>-->
+<!--    </div>-->
+    <label class="wlabel" style="color:white;">Tipo de lixo</label>
+    <div>
+        <select name="tipo_lixo" id="tipo_lixo" multiple onchange="console.log(Array.from(this.selectedOptions).map(x=>x.value??x.text))" multiselect-hide-x="true">
+            <option style="color:black" th:each="r : ${tipo_residuo}" th:value="${r.id}" th:text="${r.nome}"></option>
+        </select>
     </div>
 
-    <div class="input-group mb-3 gData textfield user-box">
-        <input  id="data_inicial" name="data" type="datetime-local" class="form-control"
+    <div class="input-group mb-3 gData textfield user-box mt-5">
+        <input id="data_inicial" name="data" type="datetime-local" class="form-control"
                 placeholder="" aria-label=""
                 aria-describedby="sp_data"/>
-        <label>Data e Hora inicial</label>
+        <label class="wlabel">Data e Hora inicial</label>
 
     </div>
     <div class="input-group mb-3 gData textfield user-box">
-        <input  id="data_final" name="data" type="datetime-local" class="form-control"
+        <input id="data_final" name="data" type="datetime-local" class="form-control"
                 placeholder="" aria-label=""
                 aria-describedby="sp_data"/>
-        <label>Data e Hora final</label>
+        <label class="wlabel">Data e Hora final</label>
     </div>
     <a id="enviar" class="btn btn-success text-center mt-2" style="margin-left: 125px">Criar</a>
 
 </div>
+
+
 

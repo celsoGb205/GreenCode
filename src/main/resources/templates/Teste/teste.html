@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Multiselect-dropdown demo!</title>
+    <style>
+        select {width: 20em;}
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Multiselect-dropdown demo!</h1>
+        <label>Select 1</label>
+        <select name="field1" id="field1" multiple onchange="console.log(Array.from(this.selectedOptions).map(x=>x.value??x.text))" multiselect-hide-x="true">
+            <option value="1">Audi</option>
+            <option selected value="2">BMW</option>
+            <option selected value="3">Mercedes</option>
+            <option value="4">Volvo</option>
+            <option value="5">Lexus</option>
+            <option value="6">Tesla</option>
+        </select>
+</div>
+
+<script src="multiselect-dropdown.js" ></script>
+</body>
+</html>

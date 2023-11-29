@@ -13,6 +13,6 @@ import java.util.ArrayList;
 @Repository
 public interface R_Residuo extends JpaRepository<M_Residuo, Long> {
 
-    @Query(value="select * from tipo_residuo", nativeQuery = true)
+    @Query(value="SELECT * FROM tipo_residuo ORDER BY nome", nativeQuery = true)
     ArrayList<M_Residuo> listLixo();
     }
