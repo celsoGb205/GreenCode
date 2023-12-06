@@ -144,7 +144,7 @@
 
             <h1 class="cursive text-center" style="margin-top:15px; color: white; font-size: 30px;">Confirmação Entregas</h1>
             <div class="linha-horizontal"></div>
-            <div th:each="solicitacao : ${slc}" th:if="${solicitacao.entregou == false}">
+            <div th:each="solicitacao : ${slc}" th:if="${solicitacao.entregou == false && solicitacao.aprovado == true}">
                 <div class="row" style="margin-top: 25px">
                     <h4 class="cursive col-2" th:text="${solicitacao.solicitante + ','}"
                         style="margin-top:15px; margin-left: 15px; color: white; font-size: 18px;"></h4>
