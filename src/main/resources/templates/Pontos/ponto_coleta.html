@@ -11,11 +11,15 @@
     <label class="btn btn-outline-light" for="btncheck1">Meus Pontos</label>
 </div>
 <div class="row mt-5" style="overflow: auto; max-height: 550px" id="pontos">
-    <div th:each="ponto : ${pdc}" th:class="${email.id == ponto.usuario_id ? 'col-4 mb-5' : 'col-4 mb-5 oto'}" th:if="${ponto.ativo == true}">
+    <div th:each="ponto : ${pdc}" th:class="${email.id == ponto.usuario_id ? 'col-4 mb-5' : 'col-4 mb-5 oto'}"
+         th:if="${ponto.ativo == true}">
         <div class="mt-5"
              style="padding: 10px; margin: 10px; background-color: rgba(57, 175, 57, 0.75); border-radius: 15px">
             <h1 class="cursive text-center" style="margin-top:15px; color: white; font-size: 30px;">Ponto de Coleta</h1>
             <div class="linha-horizontal"></div>
+            <h4 class="cursive" th:text="${'ID: '+ ponto.ponto_id}"
+                data-label="ponto_id"
+                style="margin-top:15px; margin-left: 20px; color: white; font-size: 25px;"></h4>
             <h4 class="cursive" th:text="${'Cidade: '+ ponto.cidade}" data-label="cidade"
                 style="margin-top:15px; margin-left: 20px; color: white; font-size: 25px;"></h4>
             <h4 class="cursive" th:text="${'Rua: '+ ponto.rua}" data-label="rua"
@@ -33,44 +37,47 @@
 
             <div class="row mt-5">
                 <a class="btn btn-primary col-3"
-                        style="margin-left: 25px; margin-top: 5px; margin-bottom: 5px"
-                   data-bs-toggle="modal" data-bs-target="#exampleModal" th:data-usuario-id="${ponto.usuario_id}">Solicitar
+                   style="margin-left: 25px; margin-top: 5px; margin-bottom: 5px"
+                   data-bs-toggle="modal" th:onclick="|atualizaID('${ponto.ponto_id}')|" data-bs-target="#addSolicitacao">Solicitar
                 </a>
 
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Solicitação</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
+                <div class="modal fade" id="addSolicitacao"
+                     aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Solicitação</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
                                     <div class="input-group mb-3 gData_nasc">
-                                        <label class="input-group-text">Email</label>
-                                        <input  id="email" type="email" class="form-control"/>
+                                        <label class="input-group-text">Tipo de Lixo</label>
+                                        <input id="tipo_lixo" name="tipo_lixo" type="text" class="form-control"/>
                                     </div>
-                                </div>
+                                    <div class="input-group mb-3 gData_nasc">
+                                        <label class="input-group-text">Quantidade de Lixo</label>
+                                        <input id="qtd" name="qtd" type="number" class="form-control"/>
+                                    </div>
                                 <div class="input-group mb-3 gData_nasc">
-                                    <label class="input-group-text">Tipo de Lixo</label>
-                                    <input  id="tipo" type="email" class="form-control"/>
+                                    <label class="input-group-text">Data da entrega</label>
+                                    <input id="data_entrega" name="data_entrega" type="datetime-local" class="form-control"/>
                                 </div>
-                                <div class="input-group mb-3 gData_nasc">
-                                    <label class="input-group-text">Quantidade de Lixo</label>
-                                    <input  id="qtd" type="number" class="form-control"/>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Sair</button>
-                                    <button type="button" class="btn btn-success">Mandar</button>
-                                </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Sair</button>
+                                        <a type="button"  th:href="${'/solicitar/' + ponto.ponto_id}" id="cadSolicitacao" name="cadSolicitacao" class="btn btn-outline-success">Mandar</a>
+                                    </div>
                             </div>
                         </div>
                     </div>
+                </div>
                 <a class="btn btn-success col-3"
-                        style="margin-left: 25px; margin-top: 5px; margin-bottom: 5px"
-                        th:if="${email.id == ponto.usuario_id}" href="/editarponto"  th:href="${'/editar/' + ponto.ponto_id}">Editar
+                   style="margin-left: 25px; margin-top: 5px; margin-bottom: 5px"
+                   th:if="${email.id == ponto.usuario_id}" href="/editarponto"
+                   th:href="${'/editar/' + ponto.ponto_id}">Editar
                 </a>
                 <a class="btn btn-danger col-3" style="margin-left: 25px; margin-top: 5px; margin-bottom: 5px"
-                        th:if="${email.id == ponto.usuario_id}" th:href="${'/excluir/' + ponto.ponto_id}">Excluir
+                   th:if="${email.id == ponto.usuario_id}" th:href="${'/excluir/' + ponto.ponto_id}">Excluir
                 </a>
             </div>
 

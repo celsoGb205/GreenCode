@@ -15,7 +15,6 @@ public class M_Coleta {
     private Long cod_cidade;
     private String rua;
     private String bairro;
-    private String tipo_lixo;
     private int numero;
     private LocalDateTime data_inicio;
     private LocalDateTime data_final;
@@ -60,15 +59,6 @@ public class M_Coleta {
 
     public void setRua(String rua) {
         this.rua = rua;
-    }
-
-    public String getTipo_lixo() {
-        return tipo_lixo;
-    }
-
-
-    public void setTipo_lixo(String tipo_lixo) {
-        this.tipo_lixo = tipo_lixo;
     }
 
     public LocalDateTime getData_inicio() {

@@ -1,22 +1,70 @@
 <div class="row">
-    <div class="square"
-         style="border-radius: 15px; margin-top: 80px; width: 375px; height: 400px; background-color: rgba(57, 175, 57, 0.75); margin-left: 50px;">
+    <div id="mainFrame" class="container">
+        <div class="row">
+            <div class="square "
+                 style="overflow: auto; max-height: 550px; margin-top: 80px; width: 750px; height: 400px; background-color: #fff; border: 2px solid black;">
 
-        <h1 class="cursive text-center" style="margin-top:15px; color: white; font-size: 30px;">Perfil</h1>
-        <div class="linha-horizontal"></div>
-        <h4 class="cursive" th:text="${'Nome: '+ email.nome} + ' '"
-            style="margin-top:15px; margin-left: 20px; color: white; font-size: 25px;"></h4>
-        <h4 class="cursive" th:text="${'E-mail: '+ email.email} + ' '"
-            style="margin-top:15px; margin-left: 20px; color: white; font-size: 25px;"></h4>
-        <h4 class="cursive" th:text="${'Telefone: '+ email.telefone} + ' '"
-            style="margin-top:15px; margin-left: 20px; color: white; font-size: 25px;"></h4>
-        <a class="cursive" style="margin-top:15px; margin-left: 20px; color: white; font-size: 25px;"
-           href="/alterarsenha">Alterar Senha</a>
+                <h2>Solicitações:</h2>
+                <div class="row mt-5" style="overflow: auto; max-height: 550px" id="solicitar">
+                    <div th:each="solicitacao : ${slc}" th:if="${solicitacao.respondido == false}">
+                        <div style="padding: 10px; margin: 10px; background-color: rgba(57, 175, 57, 0.75); border-radius: 15px">
+                            <div class="row">
+                                <h4 class="cursive col-3" th:text="${'Id Ponto: '+ solicitacao.ponto_id}"
+                                    data-label="ponto_id"
+                                    style="margin-top:15px; margin-left: 20px; color: white; font-size: 20px;"></h4>
+                                <a class="btn btn-success col-2" th:href="${'/aceitar/' + solicitacao.id}"
+                                   style="margin-left: 215px; margin-bottom: 20px;">Aceitar</a>
+                                <a class="btn btn-danger col-2" style="margin-left: 25px; margin-bottom: 20px;"
+                                   th:href="${'/recusar/' + solicitacao.id}">Rejeitar</a>
+                            </div>
+                            <h4 class="cursive" th:text="${'Tipo Lixo: '+ solicitacao.tipo_lixo}" data-label="tipo_lixo"
+                                style=" margin-left: 20px; color: white; font-size: 20px;"></h4>
+                            <h4 class="cursive" th:text="${'Solicitante: '+ solicitacao.solicitante}"
+                                data-label="solicitante"
+                                style="margin-top:15px; margin-left: 20px; color: white; font-size: 20px;"></h4>
+                            <h4 class="cursive" th:text="${'Data da Entrega: '+ solicitacao.data_entrega}"
+                                data-label="data_entrega"
+                                style="margin-top:15px; margin-left: 20px; color: white; font-size: 20px;"></h4>
+                        </div>
+                    </div>
+                    <div th:each="solicitacao : ${slc}"
+                         th:if="${solicitacao.aprovado == true && solicitacao.notificacao == false && solicitacao.usuario_id == email.id}">
+                        <div class="row"
+                             style="padding: 10px; margin: 10px; background-color: rgba(57, 175, 57, 0.75); border-radius: 15px">
+                            <div class="cursive col-10"
+                                 style="padding: 10px; color: white; margin: 10px; border-radius: 15px; font-size: 18px"
+                                 th:text="${'A solicitação foi confirmada no ponto '+ solicitacao.ponto_id + ' !'}"></div>
+                            <a class="btn btn-danger col-1 mt-3"
+                               style="margin-left: 5px; margin-top: 5px; margin-bottom: 20px"
+                               th:href="${'/notificacao/' + solicitacao.id}">X</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="square"
+                 style="overflow: auto; max-height: 550px; margin-top: 80px; width: 450px; height: 400px; background-color: rgba(57, 175, 57, 0.75); margin-left: 50px;">
 
+                <h1 class="cursive text-center" style="margin-top:15px; color: white; font-size: 30px;">Confirmação
+                    Entregas</h1>
+                <div class="linha-horizontal"></div>
+                <div th:each="solicitacao : ${slc}" th:if="${solicitacao.entregou == false}">
+                    <div class="row" style="margin-top: 25px">
+                        <h4 class="cursive col-2" th:text="${solicitacao.solicitante + ','}"
+                            style="margin-top:15px; margin-left: 15px; color: white; font-size: 18px;"></h4>
+                        <h4 class="cursive col-5" th:text="${'horário: '+ solicitacao.hora_minuto_formatado}"
+                            style="margin-top:15px; color: white; font-size: 18px;"></h4>
+                        <a class="btn btn-success col-3" style="margin-left: 5px; margin-top: 5px; margin-bottom: 20px"
+                           th:href="${'/entrega/' + solicitacao.id}">Entregue</a>
+                        <div class="linha-horizontal2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="square"
-         style="margin-top: 80px; width: 750px; height: 400px; background-color: #fff; margin-left: 110px; border: 2px solid black;">
-        <h2>Solicitações:</h2>
+</div>
+</div>
+</div>
+</div>
 
-    </div>
+</div>
 </div>

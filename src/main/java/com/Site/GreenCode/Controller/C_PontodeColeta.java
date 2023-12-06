@@ -1,7 +1,10 @@
 package com.Site.GreenCode.Controller;
 
 import com.Site.GreenCode.Model.M_Coleta;
+import com.Site.GreenCode.Model.M_Pessoa;
+import com.Site.GreenCode.Model.M_Resposta;
 import com.Site.GreenCode.Service.S_Coleta;
+import com.Site.GreenCode.Service.S_Solicitacao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +15,8 @@ import jakarta.servlet.http.HttpSession;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.time.LocalDateTime;
 
 @Controller
 public class C_PontodeColeta {
@@ -34,6 +39,18 @@ public class C_PontodeColeta {
         } else {
             return "redirect:/";
         }
+    }
+
+    @PostMapping("/solicitacaoP")
+    @ResponseBody
+    public M_Resposta MandarSolicitacao(@RequestParam("ponto_id") Long ponto_id,
+                                        @RequestParam("tipo_lixo") String tipo_lixo,
+                                        @RequestParam("qtd") int qtd,
+                                        @RequestParam("data_entrega") LocalDateTime data_entrega,
+                                        HttpSession session,
+                                        Model model){
+        M_Pessoa usuario = (M_Pessoa) session.getAttribute("email");
+        return S_Solicitacao.SolicitarPonto(ponto_id, tipo_lixo, qtd,data_entrega,usuario);
     }
     @PostMapping("/deletar")
     @ResponseBody

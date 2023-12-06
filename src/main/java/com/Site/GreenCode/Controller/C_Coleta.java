@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import com.google.gson.Gson;
 
 import java.time.LocalDateTime;
 
@@ -42,7 +43,10 @@ public class C_Coleta {
             @RequestParam("data_final") LocalDateTime data_final,
             HttpSession session) {
         Object usuario = session.getAttribute("email");
-        return S_Coleta.cadastrarPontoDeColeta(cod_cidade, rua, bairro, numero, tipo_lixo, data_inicial, data_final, (M_Pessoa) usuario);
+        Gson gson = new Gson();
+        Long[] tipos_lixo = gson.fromJson(tipo_lixo, Long[].class);
+
+        return S_Coleta.cadastrarPontoDeColeta(cod_cidade, rua, bairro, numero, tipo_lixo, data_inicial, data_final, (M_Pessoa) usuario, tipos_lixo);
     }
 
     @GetMapping("/teste")

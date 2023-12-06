@@ -5,7 +5,7 @@ $("#enviar").click(criarColeta);
   	let rua = $("#rua").val();
   	let bairro = $("#bairro").val();
   	let numero = $("#numero").val();
-  	let tipo_lixo = $("#tipo_lixo").val();
+  	let tipo_lixo = Array.from($("#tipo_lixo option:selected")).map(x=>x.value??x.text);
   	let data_inicial = $("#data_inicial").val();
   	let data_final = $("#data_final").val();
 
@@ -17,7 +17,7 @@ $("#enviar").click(criarColeta);
   		    rua:rua,
   			bairro:bairro,
   			numero:numero,
-            tipo_lixo:tipo_lixo,
+            tipo_lixo: JSON.stringify(tipo_lixo),
   			data_inicial:data_inicial,
   			data_final:data_final,
 

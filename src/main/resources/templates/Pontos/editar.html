@@ -2,8 +2,8 @@
     <h2>Editar ponto de coleta</h2>
 
     <div class="user-box">
-        <input id="Ncidade" list="cidadeList" class="search-select">
-        <label>Informe o nome da Cidade</label>
+        <input id="cidade" list="cidadeList" class="search-select">
+        <label class="wlabel">Informe o nome da Cidade</label>
         <datalist id="cidadeList">
             <option value=""  disabled>Select Option</option>
             <option th:each="a : ${cidades}" th:data-value="${a.cod_cidade}" th:value="${a.cidade + ' - ' + a.uf}"></option>
@@ -11,49 +11,47 @@
     </div>
 
     <div class="user-box">
-        <input type="text" id="Nbairro" name="bairro" placeholder="" required="">
-        <label>Informe o nome do Bairro</label>
+        <input type="text" id="bairro" name="bairro" placeholder="" required="">
+        <label class="wlabel">Informe o nome do Bairro</label>
         </input>
     </div>
 
     <div class="user-box">
-        <input type="text" id="Nrua" name="rua" placeholder="" required="">
-        <label>Informe o nome da Rua</label>
+        <input type="text" id="rua" name="rua" placeholder="" required="">
+        <label class="wlabel">Informe o nome da Rua</label>
         </input>
     </div>
 
     <div class="user-box">
-        <input type="text" id="Nnumero" name="tipo" placeholder="" required="">
-        <label>Informe o numero</label>
+        <input type="text" id="numero" name="tipo" placeholder="" required="">
+        <label class="wlabel">Informe o número</label>
         </input>
     </div>
 
-    <div class="input-group mb-3 gData textfield user-box">
-        <h6 style="color: #fff">Selecione o tipo de lixo:</h6>
-        <select multiple id="Ntipo_lixo" style=" ; margin-bottom: 15px; width: 350px; height: 35px; background-color: rgba(57, 175, 57, 0.75); ; color: white;">
-            <option>Bateria</option>
-            <option>Celular</option>
-            <option>Pilha</option>
-            <option>Televisão</option>
-            <option>Computador</option>
-            <option>Outros</option>
+
+    <label class="wlabel" style="color:white;">Tipo de lixo</label>
+    <div>
+        <select name="tipo_lixo" id="tipo_lixo" multiple onchange="console.log(Array.from(this.selectedOptions).map(x=>x.value??x.text))" multiselect-hide-x="true">
+            <option style="color:black" th:each="r : ${tipo_residuo}" th:value="${r.id}" th:text="${r.nome}"></option>
         </select>
     </div>
 
-    <div class="input-group mb-3 gData textfield user-box">
-        <input  id="Ndata_inicial" name="data" type="datetime-local" class="form-control"
-                placeholder="" aria-label=""
-                aria-describedby="sp_data"/>
-        <label>Data e Hora inicial</label>
+    <div class="input-group mb-3 gData textfield user-box mt-5">
+        <input id="data_inicial" name="data" type="datetime-local" class="form-control"
+               placeholder="" aria-label=""
+               aria-describedby="sp_data"/>
+        <label class="wlabel">Data e Hora inicial</label>
 
     </div>
     <div class="input-group mb-3 gData textfield user-box">
-        <input  id="Ndata_final" name="data" type="datetime-local" class="form-control"
-                placeholder="" aria-label=""
-                aria-describedby="sp_data"/>
-        <label>Data e Hora final</label>
+        <input id="data_final" name="data" type="datetime-local" class="form-control"
+               placeholder="" aria-label=""
+               aria-describedby="sp_data"/>
+        <label class="wlabel">Data e Hora final</label>
     </div>
-    <a id="editar" class="btn btn-success text-center mt-2" style="margin-left: 125px">Atualizar</a>
+    <a id="enviar" class="btn btn-success text-center mt-2" style="margin-left: 125px">Editar</a>
 
 </div>
+
+
 

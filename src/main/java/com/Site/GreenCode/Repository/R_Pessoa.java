@@ -19,7 +19,7 @@ public interface R_Pessoa extends JpaRepository<M_Pessoa, Long> {
 
     @Modifying
     @Transactional
-    @Query("UPDATE M_Pessoa u SET u.senha = :senha where u.id = :id")
+    @Query(value = "UPDATE M_Pessoa u SET u.senha = :senha where u.id = :id",nativeQuery = true)
     void atualizaSenhaUsuarioPorId(@Param("senha") String senha,@Param("id") Long id);
 }
 

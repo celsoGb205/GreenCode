@@ -8,7 +8,7 @@ function disableLink(){
     controleRotasGet($(this).attr("href"));
   });
 }
-
+let idAtual = null;
 disableLink();
 
 $('.navbar-brand').off('click');
@@ -96,8 +96,28 @@ function controleRotasGet(url){
   }
    else if(url.startsWith("/solicitar")){
       let id = url.replace("/solicitar/","");
-      solicitarDados(url,id);
-    }
+      solicitarPonto(idAtual);
+   }
+   else if(url.startsWith("/aceitar")){
+       let id = url.replace("/aceitar/","");
+       aceitarRequisicao(id);
+   }
+   else if(url.startsWith("/recusar")){
+       let id = url.replace("/recusar/","");
+       recusarRequisicao(id);
+   }
+   else if(url.startsWith("/entrega")){
+          let id = url.replace("/entrega/","");
+          confirmarEntrega(id);
+   }
+   else if(url.startsWith("/notificacao")){
+             let id = url.replace("/notificacao/","");
+             fecharNotificacao(id);
+   }
+}
+
+function atualizaID(id){
+    idAtual = id;
 }
 
 
@@ -159,4 +179,89 @@ function excluirPonto(id){
       alert("Deu ruim");
     }
   });
+  }
+
+function aceitarRequisicao(id){
+  $.ajax({
+    type: "POST",
+    url: "/aceitar",
+    data:{
+        id:id
+    },
+    success:function(data){
+    alert("Requisição aceita")
+    },
+    error:function(){
+      alert("Deu ruim");
+    }
+  });
+  }
+
+  function recusarRequisicao(id){
+    $.ajax({
+      type: "POST",
+      url: "/recusar",
+      data:{
+          id:id
+      },
+      success:function(data){
+      alert("Requisição recusada")
+      },
+      error:function(){
+        alert("Deu ruim");
+      }
+    });
+    }
+    function confirmarEntrega(id){
+      $.ajax({
+        type: "POST",
+        url: "/entrega",
+        data:{
+            id:id
+        },
+        success:function(data){
+        alert("Entrega Confirmada!")
+        },
+        error:function(){
+          alert("Deu ruim");
+        }
+      });
+      }
+function fecharNotificacao(id){
+      $.ajax({
+        type: "POST",
+        url: "/notificacao",
+        data:{
+            id:id
+        },
+        success:function(data){
+        alert("Entrega Confirmada!")
+        },
+        error:function(){
+          alert("Deu ruim");
+        }
+      });
+      }
+
+  function solicitarPonto(ponto_id){
+
+  let tipo_lixo = $("#tipo_lixo").val();
+  let qtd = $("#qtd").val();
+  let data_entrega = $("#data_entrega").val();
+    $.ajax({
+      type: "POST",
+      url: "/solicitacaoP",
+      data:{
+          ponto_id:ponto_id,
+          tipo_lixo:tipo_lixo,
+          qtd:qtd,
+          data_entrega:data_entrega
+      },
+      success:function(data){
+        alert("Solicitação enviada com sucesso");
+      },
+      error:function(){
+        alert("Deu ruim");
+      }
+    });
 }
